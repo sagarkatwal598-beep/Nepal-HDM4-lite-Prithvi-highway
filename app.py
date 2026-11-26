@@ -50,7 +50,6 @@ npv_col = find_col(num_cols, ["npv_mnpr", "net_npv", "total_npv", "npv", "net_be
 iri0_col = find_col(num_cols, ["iri_0", "iri0", "iri_yr0", "initial_iri", "start_iri"])
 iri10_col = find_col(num_cols, ["iri_yr10", "iri_10", "iri10", "final_iri", "end_iri"])
 
-# Fallback for cost/npv if custom names were used
 if cost_col is None or npv_col is None:
     st.error(f"Could not auto-detect Cost/NPV columns. Found columns: {cols}")
     st.stop()
@@ -190,7 +189,8 @@ with col_map:
         "40": "#28a745",
         "reconstruct": "#dc3545",
     }
-    m = folium.Map(location=[27.95, 84.55], zoom_start=9, tiles="CartoDB positron")
+    m = folium.Map(location=[27.95, 84.55], zoom_start=9, tiles="OpenStreetMap")
+    folium.TileLayer("Esri.WorldImagery", name="Satellite View", attr="Esri").add_to(m)
 
     def style_fn(feature):
         tr = str(feature["properties"].get(treat_col, "Do Nothing")).lower() if treat_col else "overlay"
@@ -207,9 +207,11 @@ with col_map:
 
     folium.GeoJson(
         enriched_geojson,
+        name="Prithvi Highway Treatments",
         style_function=style_fn,
         tooltip=folium.GeoJsonTooltip(fields=tooltip_fields) if tooltip_fields else None,
     ).add_to(m)
+    folium.LayerControl().add_to(m)
     st_folium(m, width=None, height=460, returned_objects=[])
 
 with col_chart:
