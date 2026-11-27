@@ -16,42 +16,25 @@ st.set_page_config(
 )
 
 # ==============================================================================
-# CUSTOM CSS: CRISP WHITE, ENGINEERING BLUE & HIGHWAY SAFETY ORANGE THEME
+# CUSTOM CSS: EXECUTIVE THEME, KPI CARDS & HIGH-VISIBILITY NAVIGATION TABS
 # ==============================================================================
 st.markdown(
     """
     <style>
-    /* Clean Light-Slate & Pure White Canvas */
-    .stApp {
-        background-color: #f4f7fb;
-        color: #0f172a;
-    }
+    /* Tighten top padding for cleaner layout */
     .block-container {
-        padding-top: 1.35rem;
+        padding-top: 1.4rem;
         padding-bottom: 2rem;
     }
 
-    /* Sidebar Styling */
-    section[data-testid="stSidebar"] {
-        background-color: #ffffff;
-        border-right: 2px solid #e2e8f0;
-    }
-    section[data-testid="stSidebar"] h1,
-    section[data-testid="stSidebar"] h2,
-    section[data-testid="stSidebar"] h3,
-    section[data-testid="stSidebar"] label,
-    section[data-testid="stSidebar"] p {
-        color: #0f172a !important;
-    }
-
-    /* Engineering Navy Blue & Safety Orange Hero Banner */
+    /* Executive Hero Banner */
     .hero-banner {
-        background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 65%, #0284c7 100%);
-        padding: 1.4rem 1.8rem;
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        padding: 1.35rem 1.75rem;
         border-radius: 14px;
-        border-left: 8px solid #f97316;
+        border-left: 6px solid #10b981;
         margin-bottom: 1.25rem;
-        box-shadow: 0 6px 20px rgba(30, 58, 138, 0.18);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
     }
     .hero-title {
         color: #ffffff;
@@ -61,116 +44,80 @@ st.markdown(
         letter-spacing: -0.02em;
     }
     .hero-subtitle {
-        color: #e0f2fe;
-        font-size: 0.96rem;
+        color: #cbd5e1;
+        font-size: 0.95rem;
         margin: 0;
-        font-weight: 500;
     }
     .hero-badge {
         display: inline-block;
-        background: rgba(255, 255, 255, 0.14);
-        color: #ffffff;
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        padding: 0.22rem 0.7rem;
+        background: rgba(16, 185, 129, 0.18);
+        color: #6ee7b7;
+        border: 1px solid rgba(16, 185, 129, 0.45);
+        padding: 0.2rem 0.65rem;
         border-radius: 999px;
         font-size: 0.78rem;
         font-weight: 600;
-        margin-top: 0.65rem;
-        margin-right: 0.45rem;
-    }
-    .hero-badge-orange {
-        display: inline-block;
-        background: #f97316;
-        color: #ffffff;
-        border: 1px solid #fb923c;
-        padding: 0.22rem 0.7rem;
-        border-radius: 999px;
-        font-size: 0.78rem;
-        font-weight: 700;
-        margin-top: 0.65rem;
-        margin-right: 0.45rem;
+        margin-top: 0.6rem;
+        margin-right: 0.4rem;
     }
 
-    /* White KPI Metric Cards with Blue & Orange Top Accents */
+    /* KPI Metric Cards */
     div[data-testid="stMetric"] {
-        background: #ffffff;
-        border: 1px solid #cbd5e1;
-        border-top: 5px solid #1d4ed8;
+        background: rgba(30, 41, 59, 0.55);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-top: 4px solid #10b981;
         border-radius: 12px;
-        padding: 0.95rem 1.15rem;
-        box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
-    }
-    div[data-testid="column"]:nth-of-type(2) div[data-testid="stMetric"],
-    div[data-testid="column"]:nth-of-type(4) div[data-testid="stMetric"] {
-        border-top: 5px solid #f97316;
+        padding: 0.95rem 1.1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
     div[data-testid="stMetricLabel"] {
-        color: #475569 !important;
-        font-size: 0.85rem !important;
-        font-weight: 700 !important;
+        font-size: 0.88rem !important;
+        font-weight: 600 !important;
         text-transform: uppercase;
         letter-spacing: 0.03em;
     }
     div[data-testid="stMetricValue"] {
-        color: #0f172a !important;
         font-size: 1.65rem !important;
         font-weight: 800 !important;
     }
 
-    /* HIGH-VISIBILITY WHITE, BLUE & ORANGE NAVIGATION TABS */
+    /* HIGH-VISIBILITY NAVIGATION TABS */
     div[data-baseweb="tab-list"] {
         gap: 10px;
-        background-color: #ffffff;
+        background-color: rgba(15, 23, 42, 0.55);
         padding: 8px;
         border-radius: 14px;
-        border: 1.5px solid #cbd5e1;
-        box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+        border: 1px solid rgba(148, 163, 184, 0.25);
         margin-top: 0.5rem;
         margin-bottom: 1rem;
     }
     button[data-baseweb="tab"] {
         flex: 1 1 auto;
         justify-content: center;
-        background-color: #eff6ff !important;
-        color: #1e3a8a !important;
-        border: 1.5px solid #bfdbfe !important;
+        background-color: rgba(30, 41, 59, 0.75) !important;
+        color: #e2e8f0 !important;
+        border: 1px solid rgba(148, 163, 184, 0.28) !important;
         border-radius: 10px !important;
         padding: 0.75rem 1rem !important;
         font-size: 1.02rem !important;
         font-weight: 700 !important;
-        transition: all 0.18s ease-in-out;
+        transition: all 0.2s ease-in-out;
     }
     button[data-baseweb="tab"]:hover {
-        background-color: #dbeafe !important;
-        border-color: #1d4ed8 !important;
-        color: #1e3a8a !important;
+        background-color: rgba(16, 185, 129, 0.22) !important;
+        border-color: #10b981 !important;
+        color: #ffffff !important;
         transform: translateY(-1px);
     }
     button[data-baseweb="tab"][aria-selected="true"] {
-        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+        background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
         color: #ffffff !important;
-        border: 1.5px solid #ea580c !important;
-        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+        border: 1px solid #34d399 !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
     }
+    /* Hide default thin underline bar under tabs */
     div[data-baseweb="tab-highlight"] {
         display: none !important;
-    }
-
-    /* White Bordered Content Cards */
-    div[data-testid="stVerticalBlockBorderWrapper"] {
-        background-color: #ffffff;
-        border-radius: 12px;
-        border: 1px solid #cbd5e1;
-        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-    }
-    h1, h2, h3, p, span, label {
-        color: #0f172a;
-    }
-    .hero-banner h1, .hero-banner p, .hero-banner span {
-        color: #ffffff !important;
-    }
-    button[data-baseweb="tab"][aria-selected="true"] p {
-        color: #ffffff !important;
     }
     </style>
     """,
@@ -186,10 +133,10 @@ st.markdown(
             Naubise – Mugling – Pokhara (~173.9 km | 348 Homogeneous 500 m Engineering Blocks)
         </p>
         <div>
-            <span class="hero-badge-orange">SciPy HiGHS MILP Optimizer</span>
             <span class="hero-badge">DoR Flexible Pavement Design Guideline (2021)</span>
             <span class="hero-badge">Nepal Road Standard (NRS 2070)</span>
             <span class="hero-badge">Sentinel-1 SAR &amp; GEE Calibrated</span>
+            <span class="hero-badge">SciPy HiGHS MILP Optimizer</span>
         </div>
     </div>
     """,
@@ -275,10 +222,10 @@ st.sidebar.markdown("---")
 st.sidebar.markdown(
     """
     **🗺️ Corridor Map Legend**
-    - 🟦 **Royal Blue:** 40 mm AC Overlay
-    - 🟧 **Safety Orange:** Full Reconstruction
-    - 🩵 **Sky Cyan:** Routine Patching
-    - ⬜ **Slate Grey:** Do Nothing (Monitor)
+    - 🟩 **Green:** 40 mm AC Overlay
+    - 🟥 **Red:** Full Reconstruction
+    - 🟦 **Teal:** Routine Patching
+    - ⬜ **Grey:** Do Nothing (Monitor)
 
     ---
     **📍 Corridor Zones (NRS 2070)**
@@ -427,19 +374,19 @@ with tab1:
         with st.container(border=True):
             st.subheader(f"Corridor Map — {map_mode.split(' (')[0]}")
             color_map = {
-                "nothing": "#94a3b8",
-                "patch": "#0ea5e9",
-                "routine": "#0ea5e9",
-                "overlay": "#1d4ed8",
-                "40": "#1d4ed8",
-                "reconstruct": "#f97316",
+                "nothing": "#6c757d",
+                "patch": "#17a2b8",
+                "routine": "#17a2b8",
+                "overlay": "#10b981",
+                "40": "#10b981",
+                "reconstruct": "#ef4444",
             }
             m = folium.Map(location=[27.95, 84.55], zoom_start=9, tiles="OpenStreetMap")
             folium.TileLayer("Esri.WorldImagery", name="Satellite View", attr="Esri").add_to(m)
 
             def style_fn(feature):
                 tr = str(feature["properties"].get(treat_col, "Do Nothing")).lower() if treat_col else "overlay"
-                col = "#1d4ed8"
+                col = "#10b981"
                 for k, v in color_map.items():
                     if k in tr:
                         col = v
@@ -475,17 +422,6 @@ with tab1:
                 )
                 .reset_index()
             )
-            bar_colors = []
-            for label in summary[group_col].astype(str).str.lower():
-                if "reconstruct" in label:
-                    bar_colors.append("#f97316")
-                elif "overlay" in label or "40" in label:
-                    bar_colors.append("#1d4ed8")
-                elif "patch" in label or "routine" in label:
-                    bar_colors.append("#0ea5e9")
-                else:
-                    bar_colors.append("#94a3b8")
-
             fig = go.Figure(
                 data=[
                     go.Bar(
@@ -493,7 +429,7 @@ with tab1:
                         y=summary["Length_km"],
                         text=summary["Length_km"].apply(lambda x: f"{x:.1f} km"),
                         textposition="auto",
-                        marker_color=bar_colors,
+                        marker_color=["#6c757d", "#17a2b8", "#10b981", "#ef4444"][: len(summary)],
                     )
                 ]
             )
@@ -503,8 +439,7 @@ with tab1:
                 height=245,
                 margin=dict(l=20, r=20, t=20, b=20),
                 paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="#f8fafc",
-                font=dict(color="#0f172a"),
+                plot_bgcolor="rgba(0,0,0,0)",
             )
             st.plotly_chart(fig, use_container_width=True)
             st.dataframe(summary, use_container_width=True, hide_index=True)
@@ -524,7 +459,7 @@ with tab2:
                     y=opt_plan[iri0_col],
                     mode="lines",
                     name="Year-0 Satellite Baseline (IRI₀)",
-                    line=dict(color="#64748b", width=1.6, dash="dot"),
+                    line=dict(color="#94a3b8", width=1.6, dash="dot"),
                 )
             )
             if len(do_nothing_df) == len(opt_plan):
@@ -534,8 +469,8 @@ with tab2:
                         y=do_nothing_df[iri10_col].values,
                         mode="lines",
                         name="Year-10 Unmanaged (Do Nothing)",
-                        line=dict(color="#f97316", width=2.0),
-                        opacity=0.88,
+                        line=dict(color="#ef4444", width=1.9),
+                        opacity=0.8,
                     )
                 )
             fig_prof.add_trace(
@@ -544,26 +479,25 @@ with tab2:
                     y=opt_plan[iri10_col],
                     mode="lines",
                     name="Year-10 MILP Optimized Plan",
-                    line=dict(color="#1d4ed8", width=2.5),
+                    line=dict(color="#10b981", width=2.4),
                 )
             )
             fig_prof.add_hline(
                 y=safety_iri,
                 line_dash="dash",
-                line_color="#ea580c",
+                line_color="#f59e0b",
                 annotation_text=f"DoR Safety Trigger ({safety_iri:.1f} m/km)",
             )
-            fig_prof.add_vrect(x0=0, x1=96, fillcolor="rgba(249,115,22,0.07)", line_width=0, annotation_text="Zone A: Naubise–Mugling", annotation_position="top left")
-            fig_prof.add_vrect(x0=96, x1=104, fillcolor="rgba(29,78,216,0.08)", line_width=0, annotation_text="Zone B", annotation_position="top left")
-            fig_prof.add_vrect(x0=104, x1=174, fillcolor="rgba(14,165,233,0.07)", line_width=0, annotation_text="Zone C: Abukhaireni–Pokhara (4-Lane)", annotation_position="top left")
+            fig_prof.add_vrect(x0=0, x1=96, fillcolor="rgba(245,158,11,0.08)", line_width=0, annotation_text="Zone A: Naubise–Mugling", annotation_position="top left")
+            fig_prof.add_vrect(x0=96, x1=104, fillcolor="rgba(239,68,68,0.08)", line_width=0, annotation_text="Zone B", annotation_position="top left")
+            fig_prof.add_vrect(x0=104, x1=174, fillcolor="rgba(16,185,129,0.07)", line_width=0, annotation_text="Zone C: Abukhaireni–Pokhara (4-Lane)", annotation_position="top left")
             fig_prof.update_layout(
                 xaxis_title="Chainage from Naubise (km)",
                 yaxis_title="International Roughness Index — IRI (m/km)",
                 height=360,
                 margin=dict(l=20, r=20, t=30, b=20),
                 paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="#f8fafc",
-                font=dict(color="#0f172a"),
+                plot_bgcolor="rgba(0,0,0,0)",
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
             )
             st.plotly_chart(fig_prof, use_container_width=True)
@@ -584,17 +518,16 @@ with tab2:
             })
         f_df = pd.DataFrame(frontier_rows)
         fig_front = go.Figure()
-        fig_front.add_trace(go.Scatter(x=f_df["Budget_MNPR"], y=f_df["MILP_NPV"], mode="lines+markers", name="HiGHS MILP Optimal NPV", line=dict(color="#1d4ed8", width=3)))
-        fig_front.add_trace(go.Scatter(x=f_df["Budget_MNPR"], y=f_df["WorstFirst_NPV"], mode="lines+markers", name="Worst-First Heuristic NPV", line=dict(color="#f97316", width=2.5, dash="dash")))
-        fig_front.add_vline(x=budget_mnpr, line_dash="dot", line_color="#0284c7", annotation_text=f"Selected Budget: NPR {int(budget_mnpr)}M")
+        fig_front.add_trace(go.Scatter(x=f_df["Budget_MNPR"], y=f_df["MILP_NPV"], mode="lines+markers", name="HiGHS MILP Optimal NPV", line=dict(color="#10b981", width=3)))
+        fig_front.add_trace(go.Scatter(x=f_df["Budget_MNPR"], y=f_df["WorstFirst_NPV"], mode="lines+markers", name="Worst-First Heuristic NPV", line=dict(color="#ef4444", width=2, dash="dash")))
+        fig_front.add_vline(x=budget_mnpr, line_dash="dot", line_color="#38bdf8", annotation_text=f"Selected Budget: NPR {int(budget_mnpr)}M")
         fig_front.update_layout(
             xaxis_title="Annual Capital Budget Ceiling (Million NPR)",
             yaxis_title="10-Year Net Present Value (Million NPR)",
             height=300,
             margin=dict(l=20, r=20, t=20, b=20),
             paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="#f8fafc",
-            font=dict(color="#0f172a"),
+            plot_bgcolor="rgba(0,0,0,0)",
         )
         st.plotly_chart(fig_front, use_container_width=True)
 
@@ -648,7 +581,7 @@ with tab3:
             )
             st.dataframe(block_table, use_container_width=True, hide_index=True)
 
-            st.info(
+            st.success(
                 f"**MILP Solver Rationale:** Out of 4 candidate interventions on Block `{chosen_sid}`, the HiGHS MILP solver "
                 f"selected **{selected_row[treat_col]}** (Capex: `NPR {selected_row[cost_col]:.2f} M`, "
                 f"10-Yr NPV: `NPR {selected_row[npv_col]:.2f} M`) to maximize network-wide user VOC savings under the "
@@ -677,7 +610,6 @@ with tab3:
                             values=z_summary["Budget_MNPR"],
                             hole=0.45,
                             textinfo="label+percent",
-                            marker=dict(colors=["#1d4ed8", "#f97316", "#0ea5e9"]),
                         )
                     ]
                 )
@@ -686,7 +618,6 @@ with tab3:
                     margin=dict(l=10, r=10, t=10, b=10),
                     showlegend=False,
                     paper_bgcolor="rgba(0,0,0,0)",
-                    font=dict(color="#0f172a"),
                 )
                 st.plotly_chart(fig_z, use_container_width=True)
                 st.dataframe(z_summary, use_container_width=True, hide_index=True)
